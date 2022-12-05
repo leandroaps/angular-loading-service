@@ -4,29 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoadingComponent } from './loading/loading.component';
-import { LoadingInterceptorService } from './loading/loading.interceptor';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, LoadingComponent],
+  declarations: [AppComponent, SpinnerComponent],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
+    BrowserModule,
     HomeModule,
-    MatToolbarModule,
+
+    HttpClientModule,
     MatProgressBarModule,
+    MatToolbarModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptorService,
+      useClass: LoadingInterceptor,
       multi: true,
     },
   ],

@@ -1,0 +1,14 @@
+<table class="table" aria-describedby="Table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todo of todos$ | async">
+      <th scope="row">{{ todo.id }}</th>
+      <td> {{ todo.title }}</td>
+    </tr>
+  </tbody>
+</table>
