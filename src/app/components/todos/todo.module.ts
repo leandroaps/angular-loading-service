@@ -7,8 +7,7 @@ import { TodosComponent } from './todos.component';
 // @NgModule decorator with its metadata
 @NgModule({
   declarations: [TodosComponent],
-  imports: [CommonModule, , MatTableModule],
-  exports: [MatTableModule],
+  imports: [CommonModule, MatTableModule],
   providers: [],
   bootstrap: [TodosComponent],
 })
